@@ -1,1 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+      
+      
+      <bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+         <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+         <property name="url" value="jdbc:oracle:thin:@Localhost:1521:xe"/>
+         <property name="username" value="scott"/>
+         <property name="password" value="tiger"/>
+      </bean>
+      
+         <context:component-scan base-package="com.naver.myhome4"/>
+         
+         
+      <!-- ViewResolver -->
+      <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+      <property name="viewClass">
+         <value>org.springframework.web.servlet.view.JstlView</value>
+      </property>
+      <property name="prefix">
+         <value>jsp/</value>
+      </property>
+      <property name="suffix">
+         <value>.jsp</value>
+      </property>
+      </bean>
+   
+      <bean class="org.mybatis.spring.SqlSessionFactoryBean" id="sqlSession">
+      	<property name="dataSource" ref="dataSource"></property>
+      	<property name="configLocation" value="classpath:util/SqlMapConfig.xml"></property>
+      </bean>
+      
+      <!-- SqlSessionTemplate은 필요한 시점에 세션을 닫고 커밋하거나 롤백하는것을 포함한 세션의 생명주기를 관리합니다. -->
+      <bean class="org.mybatis.spring.SqlSessionTemplate" id="sqlSessionTemlate">
+      	<constructor-arg ref="sqlSession" index="0"></constructor-arg>
+      </bean>
+      
+      
+</beans>
