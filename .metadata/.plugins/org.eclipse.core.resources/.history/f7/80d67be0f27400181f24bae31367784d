@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 기존에서 추가된 부분
+	annotation 설정을 추가하려면 context관련 네임스페이스와 스키마 위치를 등록해야 합니다.
+	Namespaces 탭에서 'context' 항목 체크하세요
+	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+ -->
+ 
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+
+	<!-- 추가된 부분 -->
+	<context:annotation-config>
+	</context:annotation-config>
+	
+		<bean id="m" class="com.naver.myhome2.sample.MessageBeanImpl" scope="singleton">
+			<constructor-arg>
+				<value>Spring</value>
+			</constructor-arg>
+			
+			<property name="greeting">
+				<value>안녕하세요!</value>
+			</property>
+			
+			<!-- 삭제 되는 부분 (@Resource 적용부분)
+			<property name="outputter"> 
+				<ref bean="f"></ref>
+			</property>
+			-->
+		</bean>
+		
+		<bean id="f" class="com.naver.myhome2.sample.FileOutputter" scope="singleton">
+			<property name="filePath">
+				<value>out.txt</value>
+			</property>
+		</bean>
+		
+		<!-- 자바로 표현하면 다음과 같습니다. -->
+		
+		<!-- 
+		import com.naver.myhome1.sample3.MessageBeanEn;
+		MessageBeanEn m = new MessageBeanEn();
+		 -->
+		
+</beans>

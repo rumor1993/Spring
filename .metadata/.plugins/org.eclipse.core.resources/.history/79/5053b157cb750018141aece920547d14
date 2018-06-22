@@ -1,0 +1,14 @@
+package com.naver.myhome3.controller;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class BoardAction {
+	
+	public MoelAndView Board_write(HttpServletRequest request)
+	
+	String id = request.getParameter("id");
+	String pass =request.getParameter("pass");
+}

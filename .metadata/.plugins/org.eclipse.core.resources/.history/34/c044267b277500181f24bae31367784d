@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+		xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+		
+		<bean id="collectionBean" class="com.naver.myhome1.sample6.CollectionBean">
+			<property name="addressList">
+				<map>
+					<entry>
+						<key><value>주소</value></key>
+						<value>서울시 강남구 역삼동</value>
+					</entry>
+					<entry>
+						<key><value>나이</value></key>
+						<value>21</value>
+					</entry>
+				</map>
+					<value> 서울시 종로구 다동</value>
+					<value> 서울시 종로구 인사동</value>
+					<value> 서울시 종로구 인사동</value>
+				</list>
+			</property>
+		</bean>
+</beans>

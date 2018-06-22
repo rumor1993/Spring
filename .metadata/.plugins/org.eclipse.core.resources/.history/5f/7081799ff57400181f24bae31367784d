@@ -1,0 +1,14 @@
+package com.naver.myhome1.sample3;
+
+public class MessageMultiple2{
+	
+	private MessageBean messagebean;
+	
+	public MessageMultiple2() {
+		System.out.println("MessageMultiple 생성자 입니다.");
+	}
+	
+	public void print() {
+		messagebean.sayHello("Spring");
+	}
+}

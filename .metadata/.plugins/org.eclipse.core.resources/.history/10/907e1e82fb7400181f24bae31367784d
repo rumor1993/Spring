@@ -1,0 +1,31 @@
+package com.naver.myhome1.sample4;
+
+/*
+  @Qualifier("m1") 생략한 경우 오류발생
+  
+  MessageBean 타입의 빈이 두개가 존재하는 경우 어떤 객체를 주입할지 모르기 때문에 발생하는 예외입니다.
+  @Qualifier annotation을 이용해서 주입될 객체의 아이디나 이름을 지정할 수 있습니다.
+  @Autowired와 @Qualifier를 한번에 처리할 수 있는 것이 @Resource 입니다.
+
+ */
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
+
+public class MessageMultiple2{
+	@Resource(name="m1")
+	// 해당 타입에 할당할 수  있는 빈 객체를 찾아서 자동 주입 됩니다.
+	// 반드시 주입할 의존 객체가 존재해야 합니다.
+	private MessageBean messagebean;
+	// MessageBean 타입으로 messagebean을 선언하면 null 값이라서 
+	// new MessageBean(); 을 따로 해주는게 아니라 @Autowired를 이용해서 인스턴스화 해준다.
+	
+	public MessageMultiple2() {
+		System.out.println("MessageMultiple 생성자 입니다.");
+	}
+	
+	public void print() {
+		messagebean.sayHello("Spring");
+	}
+}

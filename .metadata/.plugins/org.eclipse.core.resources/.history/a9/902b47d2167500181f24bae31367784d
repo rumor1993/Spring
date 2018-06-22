@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+		xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		 
+		<bean id="m" class="com.naver.myhome1.sample5.MessageBeanImpl" scope="singleton">
+			<constructor-arg>
+				<value>Spring</value>
+			</constructor-arg>
+			
+			<property name="greeting">
+				<value>안녕하세요!</value>
+			</property>
+			
+			<property name="outputter"> 
+				<ref bean="outputter"></ref>
+			</property>
+
+		</bean>
+		
+		<bean id="f" class="com.naver.myhome1.sample5.FileOutputter" scope="singleton">
+			<property name="outoutter">
+				<value>out.txt</value>
+			</property>
+		</bean>
+</beans>

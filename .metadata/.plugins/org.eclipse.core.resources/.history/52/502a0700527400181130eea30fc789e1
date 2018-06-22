@@ -1,0 +1,37 @@
+package com.naver.myhome1.sample4;
+
+public class MessageBeanImpl implements MessageBean {
+	
+	private String name;
+	private String greetign;
+	
+	// 생성자 호출을 통하여 name="Spring" 할당합니다.
+	public MessageBeanImpl(String name) {
+		this.name = name;
+	}// 생성자 정의
+
+	@Override
+	public void sayHello(String name) {
+		System.out.println(greeting + name + "!");
+		
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getGreetign() {
+		return greetign;
+	}
+
+	public void setGreetign(String greetign) {
+		this.greetign = greetign;
+	}
+	
+	
+
+}

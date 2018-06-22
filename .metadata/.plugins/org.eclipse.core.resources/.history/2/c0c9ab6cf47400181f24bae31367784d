@@ -1,0 +1,6 @@
+package com.naver.myhome1.sample3;
+
+public class MessageMultiple2 {
+	
+	private MessageBean messagebean;
+}

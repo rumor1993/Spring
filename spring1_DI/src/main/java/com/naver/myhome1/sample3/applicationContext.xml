@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans
+		xmlns="http://www.springframework.org/schema/beans" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+		<!-- bean 생성합니다. -->
+		<!-- class 속성은 클래스를 등록할 때 정확한 패키지경로와 클래스 이름을 지정해야 합니다. -->
+		<bean id="m" class="com.naver.myhome1.sample3.MessageBeanEn"/>
+		<bean id="m1" class="com.naver.myhome1.sample3.MessageBeanKo"/>
+		
+		<!-- 자바로 표현하면 다음과 같습니다. -->
+		
+		<!-- 
+		import com.naver.myhome1.sample3.MessageBeanEn;
+		MessageBeanEn m = new MessageBeanEn();
+		 -->
+		
+</beans>
