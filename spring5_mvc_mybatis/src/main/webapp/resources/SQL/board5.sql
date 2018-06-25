@@ -14,3 +14,9 @@ create table board5(
 create sequence board5_num_seq 
 increment by 1
 start with 1 nocache;
+
+select * from board5 
+
+		update board5 set board_content = '수정되냐?', 
+						  board_subject = '모루겠는데'
+		where board_num = 5

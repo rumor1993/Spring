@@ -11,8 +11,6 @@ public class BoardBean {
 	private int board_re_seq;
 	private int board_readcount;
 	private String board_date;
-	
-	
 	public int getBoard_num() {
 		return board_num;
 	}
@@ -73,6 +71,9 @@ public class BoardBean {
 	public void setBoard_date(String board_date) {
 		this.board_date = board_date;
 	}
+	
+	
+	
 	
 	
 }
