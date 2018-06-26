@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+
+<mapper namespace="bbs">
+ 	<insert id="insert" parameterType="bbs">
+ 		insert into bbs6 values(bbs6_num_seq.nextval,#{bbs_name},#{bbs_pass},
+ 						#{bbs_subject},#{bbs_content},#{bbs_file},
+ 						0,0,bbs6_num_seq.nextval,
+ 						0,SYSDATE,#{bbs_original}
+ 		)
+ 	</insert>
+</mapper>

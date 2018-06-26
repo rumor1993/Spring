@@ -5,7 +5,7 @@
 <mapper namespace="board">
 
 	<!-- 게시물 작성 -->
-	<insert id="add">
+	<insert id="add" parameterType="board">
 		insert into board5 (
 		board_num,
 		board_name,
@@ -74,58 +74,23 @@
 		where board_num = #{board_num}
 	</update>
 	
-		<insert id="reply">
-		insert into board5 (
-		board_num,
-		board_name,
-		board_pass,
-		board_subject,
-		board_content,
-		board_re_ref,
-		board_re_lev,
-		board_re_seq,
-		board_readcount,
-		board_date
-		)
-		values (
-		board5_num_seq.nextval,
-		#{board_name},
-		#{board_pass},
-		#{board_subject},
-		#{board_content},
-		board5_num_seq.nextval,
-		#{board_re_ref},
-		#{board_re_lev},
-		#{board_re_seq},
-		SYSDATE	
-		)
-	</insert>
-	
 	<!-- 답변글 레벨 증가 -->
-	<update id="level" parameterType="board">
-		update board5
-		set
-			board_re_seq = board_re_seq+1
-		where
-			board_re_ref = #{board_re_ref} and board_re_seq > #{board_re_seq}
+ <update id="level" parameterType="board">
+		update board5 
+		set board_re_seq = board_re_seq 
+		where board_re_ref = #{board_re_ref} and board_re_seq > #{board_re_seq}
 	</update>
+ 
 	
-	<!-- 답변글 저장 -->
-	<insert id="reply" parameterType="board">
-		insert into board5
-		(
-			board_num, board_name, board_subject,
+ 	<insert id="reply" parameterType="board">
+		insert into board5 (board_num, board_name, board_subject,
 			board_content, board_pass, board_re_ref,
 			board_re_lev, board_re_seq,
-			board_readcount, board_date
-		) 
-		values
-		(
-			#{board_num}, #{board_name}, #{board_subject},
+			board_readcount, board_date) 
+		values( board5_num_seq.nextval , #{board_name}, #{board_subject},
 			#{board_content}, #{board_pass}, #{board_re_ref},
-			#{board_re_lev}, #{board_re_seq}, 0, sysdate
-		) 
-	</insert>
+			#{board_re_lev}, #{board_re_seq}, 0, SYSDATE) 
+	</insert>   
 </mapper>
 
 
