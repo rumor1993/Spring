@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.naver.myhome6.dao.BbsDAOImpl;
 import com.naver.myhome6.dao.BbsService;
 import com.naver.myhome6.model.BbsBean;
 
@@ -18,7 +19,7 @@ import com.naver.myhome6.model.BbsBean;
 public class BbsAction2 {
 	
 	@Autowired
-	private BbsService bbsService;
+	private BbsDAOImpl bbsService;
 	private String saveFolder = "C:\\Users\\user1\\Documents\\workspace-sts-3.9.4.RELEASE\\spring_mvc_bbs\\src\\main\\webapp\\resources\\upload";  
 	
 	/* 자료실 입력 폼 */
