@@ -57,7 +57,7 @@ public class BbsAction2 {
 			// 파일 객체 생성합니다.
 			File path1 = new File(homedir);
 			
-			// 폴더가 존재하는지 확인합니다.
+			// 폴더가 존재하는지 확인합니다. 
 			if(!(path1.exists())) {
 				System.out.println("폴더 만들어요");
 				path1.mkdirs(); // 새로운 폴더를 생성
