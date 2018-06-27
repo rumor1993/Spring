@@ -9,8 +9,6 @@ public interface BbsService {
 	/*자료실 저장*/
 	public void insertBbs(BbsBean bbsbean) throws Exception;
 		
-	
-	
 	/* 자료실 총 게시물 수*/
 	public int getListCount() throws Exception;
 	

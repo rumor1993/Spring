@@ -17,7 +17,7 @@ public class BbsBean {
 	private int bbs_re_seq; // 답변글 레벨 순서
 	private int bbs_readcount; // 조회수
 	
-	private String date; //글 등록날짜
+	private String bbs_date; //글 등록날짜
 	
 	private String bbs_file; // DB등록시 파일명
 	private String bbs_original; // 파일 첨부시 원본 파일명
@@ -83,12 +83,6 @@ public class BbsBean {
 	public void setBbs_readcount(int bbs_readcount) {
 		this.bbs_readcount = bbs_readcount;
 	}
-	public String getDate() {
-		return date;
-	}
-	public void setDate(String date) {
-		this.date = date;
-	}
 	public String getBbs_file() {
 		return bbs_file;
 	}
@@ -100,6 +94,12 @@ public class BbsBean {
 	}
 	public void setBbs_original(String bbs_original) {
 		this.bbs_original = bbs_original;
+	}
+	public String getBbs_date() {
+		return bbs_date;
+	}
+	public void setBbs_date(String bbs_date) {
+		this.bbs_date = bbs_date.substring(0, 11);
 	}
 	
 	

@@ -98,10 +98,6 @@
 	margin: 15px 0 0 30px;
 }
 
-#bbscont_t th {
-	background: #2196f347;
-	border-radius: 15px;
-}
 
 #bbscont_menu {
 	margin: 15px 0 0 90px;
@@ -151,3 +147,4 @@
 #close{dosplay:none}
 label img{width:30px}
 #close img {width:15px}
+}

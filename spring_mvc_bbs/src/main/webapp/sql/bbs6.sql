@@ -16,6 +16,7 @@ create table bbs6(
 )
 
 drop table bbs6
+drop sequence bbs6_num_seq
 
 create sequence bbs6_num_seq
 increment by 1 start with 1
