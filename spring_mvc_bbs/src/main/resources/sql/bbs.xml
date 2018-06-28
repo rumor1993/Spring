@@ -118,4 +118,18 @@
 	 		</if>
 	 	</where>
 	 </select>
+	 
+	  	<select id="listview" parameterType="map" resultType="bbs">
+ 		<![CDATA[
+		select *
+		from (select rownum rnum, bbs_num, bbs_name,
+					 bbs_subject, bbs_content, bbs_file,
+					 bbs_re_ref, bbs_re_lev,
+					 bbs_re_seq, bbs_readcount, bbs_date, bbs_original
+		from (select * from bbs6
+		order by bbs_re_ref desc, bbs_re_seq asc)
+		)
+		where rnum >= ((#{page}-1) * #{limit} + 1) and rnum <= (#{page} * #{limit})
+		]]>
+ 	</select>
 </mapper>

@@ -12,6 +12,8 @@ import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -121,34 +123,67 @@ public class BbsAction2 {
 
 	// 게시판 목록
 	@RequestMapping(value = "/bbs_list.nhn")
-	public ModelAndView bbs_list(BbsBean bbsbean, @RequestParam(value = "page", defaultValue = "1") int page)
-			throws Exception {
-
+	public ModelAndView bbs_list(
+			HttpServletRequest request
+			)throws Exception {
+			
+		int page=1;
+		int limit=3; //목록 초기값
+		HttpSession session = request.getSession();
+		
+		if(request.getParameter("page")!= null) {
+			page=Integer.parseInt(request.getParameter("page"));
+		}
+		
+		// 자료실 내용 보기 후 목록을 선택 했을 때 limit값을 유지 합니다.
+		// 아래부분을 주석을 달경우  limit=3으로 설정됩니다.
+		// 이전에 설정된 limit가 있는지 체크
+		
+		if(session.getAttribute("limit")!=null) {
+			limit=(Integer)session.getAttribute("limit");
+		}
+		
+		// 변경된 limit가 있는지 체크
+		if(request.getParameter("limit")!=null) {
+			limit=Integer.parseInt(request.getParameter("limit"));
+			session.setAttribute("limit", limit);
+		}
+		
+		System.out.println("limit="+limit);
+		System.out.println("page="+page);
+		
+		
 		// 총 리스트의 갯수
 		int listcount = bbsService.getListCount();
 
 		// 게시글을 담을 변수
 		List<BbsBean> bbslist = new ArrayList<BbsBean>();
-
-		int limit = 10; // 한 화면에 출력할 레코드 갯수
+		
+		System.out.println("limit : " + limit);
+		
 		int maxpage = (listcount + limit - 1) / limit; // 총 페이지 수
-		int startpage = ((page - 1) / limit) * limit + 1; // 현재 페이지에 표시할 시작페이지
-		int endpage = startpage + limit - 1; // 현재 페이지에 표시할 마지막 페이지 수
+		int startpage = ((page - 1) / 5) * 5 + 1; // 현재 페이지에 표시할 시작페이지
+		int endpage = startpage + 5 - 1; // 현재 페이지에 표시할 마지막 페이지 수
 
-		if (endpage > maxpage)
-			endpage = maxpage;
+		if (endpage > maxpage) endpage = maxpage;
+		if (endpage < page) page = endpage;
 		// 마지막 페이지의 경우 limit 기준으로 늘어나기 때문에 총페이지의 수보다 크면 이를 맞춰준다
-
-		bbslist = bbsService.getBbsList(page);
-		ModelAndView mv = new ModelAndView("bbs/bbs_list");
-
-		mv.addObject("list", bbslist);
+		
+		ModelAndView mv = new ModelAndView();
 		mv.addObject("startpage", startpage);
 		mv.addObject("endpage", endpage);
 		mv.addObject("listcount", listcount);
 		mv.addObject("page", page);
 		mv.addObject("maxpage", maxpage);
+		
 
+		Map m = new HashMap();
+		m.put("limit", limit);
+		m.put("page", page);
+		bbslist = bbsService.getBbsListview(m);
+		mv.addObject("list", bbslist);
+		mv.setViewName("bbs/bbs_list");
+		
 		return mv;
 	}
 

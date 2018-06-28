@@ -32,4 +32,6 @@
 //com.springsource.config.ui.prefs.activePageIndex\:/spring_DI_init_destroy/src/main/java/com/naver/myhome1/sample2/applicationContext.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/spring_mvc_bbs/src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 //com.springsource.config.ui.prefs.activePageIndex\:/spring_mvc_bbs/src/main/webapp/WEB-INF/spring/root-context.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/spring_mvc_bbs/src/main/webapp/resources/upload/2018-6-27/bbs201862761990274.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/spring_mvc_bbs/src/main/webapp/resources/upload/2018-6-27/bbs201862769139833.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
 eclipse.preferences.version=1
