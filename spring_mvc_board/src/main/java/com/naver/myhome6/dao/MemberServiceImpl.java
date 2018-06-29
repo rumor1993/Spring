@@ -1,5 +1,7 @@
 package com.naver.myhome6.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +23,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public MemberBean loginCheck(MemberBean member) throws Exception {
 		return memberDAO.loginCheck(member);
+	}
+
+
+	@Override
+	public List<MemberBean> getmember_list() throws Exception {
+		return memberDAO.getmember_list();
 	}
 }

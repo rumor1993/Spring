@@ -1,5 +1,7 @@
 package com.naver.myhome6.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -17,6 +19,9 @@ public class MemberDAOImpl {
 	}
 	public MemberBean loginCheck(MemberBean member) throws Exception {
 		return sqlsession.selectOne("member.loginCheck", member);
+	}	
+	public List<MemberBean> getmember_list() throws Exception {
+		return sqlsession.selectList("member.list");
 	}
 
 }

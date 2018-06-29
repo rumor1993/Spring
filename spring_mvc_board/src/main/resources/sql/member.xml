@@ -11,4 +11,8 @@
  	<insert id="signup" parameterType="member">
  		insert into member6 values(#{member_id},#{member_pass},#{member_email})
  	</insert>
+ 	
+ 	<select id="list" resultType="member">
+ 		select * from member6 
+ 	</select>
  </mapper>

@@ -31,6 +31,16 @@
 	<logger name="org.springframework.web">
 		<level value="info" />
 	</logger>
+	
+	<!-- Application Loggers -->
+	<logger name="bbs">
+		<level value="trace"></level>
+	</logger>
+	
+	<logger name="board">
+		<level value="trace"></level>
+	</logger>
+	
 
 	<!-- Root Logger -->
 	<root>

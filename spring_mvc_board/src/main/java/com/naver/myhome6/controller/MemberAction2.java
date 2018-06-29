@@ -1,5 +1,7 @@
 package com.naver.myhome6.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -78,5 +80,24 @@ public class MemberAction2 {
 			
 		}
 		return mv;
+	}
+	
+	@RequestMapping(value="member_list.nhn")
+	public ModelAndView member_update(HttpServletRequest request) throws Exception{
+		
+		ModelAndView mv = new ModelAndView("member/member_list");
+		List<MemberBean> member = memberService.getmember_list();
+		mv.addObject("totallist", member);
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="member_logout.nhn")
+	public ModelAndView member_logout(HttpServletRequest request) throws Exception{
+		HttpSession session = request.getSession();
+		session.invalidate();
+		ModelAndView mv = new ModelAndView("redirect:member_login.nhn");
+		return mv;
+		
 	}
 }

@@ -8,7 +8,7 @@
 <c:choose>
    <c:when test="${sessionScope.id=='admin' }">
       <b>관리자 ${id} 님 환영합니다.</b>
-      <a href="member_list.net">관리자 모드 접속(회원 목록 보기)</a>
+      <a href="member_list.nhn">관리자 모드 접속(회원 목록 보기)</a>
          <a href="bbs_list.nhn">(게시판)</a>
       
    </c:when>
@@ -26,6 +26,7 @@
    
    
    
-<a href="member_update.net">정보수정</a>
-<a href="logout.net">로그아웃</a>
+<a href="member_update.nhn">정보수정</a>
+<a href="member_logout.nhn">로그아웃</a>
 </div>
+

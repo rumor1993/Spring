@@ -35,6 +35,13 @@
 		<item value="450" key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_WIDTH"/>
 		<item value="false" key="org.eclipse.jdt.internal.ui.typehierarchy.HierarchyInformationControlDIALOG_USE_PERSISTED_LOCATION"/>
 	</section>
+	<section name="DialogBounds_OverrideMethodDialog">
+		<item value="679" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="605" key="DIALOG_HEIGHT"/>
+		<item value="442" key="DIALOG_X_ORIGIN"/>
+		<item value="155" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
 		<item value="681" key="DIALOG_WIDTH"/>
 		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
@@ -52,13 +59,16 @@
 		<item value="1" key="VisibilityModifier"/>
 		<item value="false" key="FinalModifier"/>
 	</section>
+	<section name="OverrideMethodDialog">
+		<item value="true" key="showtypes"/>
+	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
 	<section name="NewPackageWizardPage">
 		<item value="false" key="create_package_info_java"/>
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item value="3" key="pageIndex"/>
+		<item value="0" key="pageIndex"/>
 	</section>
 	<section name="completion_proposal_size">
 		<item value="323" key="size.y"/>
