@@ -17,14 +17,12 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public int checkMemberId(String id) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return memDAO.checkMemberId(id);
 	}
 
 	@Override
 	public List<ZipcodeBean2> findZipcode(String dong) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return memDAO.findZipcode(dong);
 	}
 
 	@Override
@@ -35,7 +33,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void insertMember(MemberBean m) throws Exception {
-		// TODO Auto-generated method stub
+			memDAO.insertMember(m);
 		
 	}
 

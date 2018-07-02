@@ -2,11 +2,38 @@
  <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="Test">
-
+	<select id="select_member" parameterType="String" resultType="member">
+		select * from join_member2 where join_id = #{join_id} 
+	</select>
+    <select id="check_id" parameterType="String" resultType="int">
+    	select count(*) from join_member2 where join_id = #{join_id}
+    </select>
     
+    <select id="zipcodelist" parameterType="String" resultType="Zipcode">
+    	select * from zipcode5 where doro like #{dong}
+    </select>
+    
+    <select id="pwd_find" resultType="member" parameterType="map">
+    	select join_pwd from join_member2 where join_id=#{id} and join_name = #{name}
+    </select>
+    
+     <insert id="join" parameterType="member">
+    	insert into join_member2 (
+    		join_code,
+    		join_id, join_pwd, join_name,
+    		join_zip,
+    		join_addr1, join_addr2, join_tel,
+    		join_phone, join_email, join_file, join_original,
+    		join_regdate, join_state)
+    		values(
+    		join_member_joincode_seq.nextval,
+    		#{join_id}, #{join_pwd}, #{join_name},
+    		#{join_zip},
+    		#{join_addr1}, #{join_addr2}, #{join_tel },    		
+    		#{join_phone}, #{join_email}, #{join_file}, #{join_original},
+    		sysdate,1)
+    </insert> 
 </mapper>
-
-
 
 
 

@@ -37,7 +37,7 @@
 		<level value="trace"></level>
 	</logger>
 	
-	<logger name="board">
+	<logger name="member">
 		<level value="trace"></level>
 	</logger>
 	

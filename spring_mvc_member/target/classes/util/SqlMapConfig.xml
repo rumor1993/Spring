@@ -11,9 +11,9 @@
     
 	<typeAliases>
 		 <typeAlias alias="member"  
-		            type="com.naver.myhome7.model.MemberBean" />	
+		            type="com.naver.myhome6.model.MemberBean" />	
 		 <typeAlias alias="Zipcode" 
-		            type="com.naver.myhome7.model.ZipcodeBean2" />	
+		            type="com.naver.myhome6.model.ZipcodeBean2" />	
 	</typeAliases>
  
 
