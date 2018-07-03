@@ -1,5 +1,6 @@
 --join_member2.sql
 drop table join_member
+delete join_member2
 create table join_member2(
   	join_code number(38) unique not null 
   	/*unique 제약 조건은 중복값을 허용하지 않고 null은 허용*/  	

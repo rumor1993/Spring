@@ -3,10 +3,47 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
+<style>
+#upfile{display:none}
+#close{dosplay:none}
+label img{width:30px}
+#close img {width:15px}
+}
+</style>
 <title>Insert title here</title>
-
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
+$(function(){
+	$("#join_tel1").val('${join_tel1}'); 
+	$("#join_phone1").val('${join_phone1}'); 
+	$("#join_maildomain").val('${join_maildomain}'); 
+	
+})
+
+function fileshow(){
+	   if($("#filevalue").text()==""){
+	      $("#close").css("display","none");
+	   }else{
+	      $("#close").css("display","inline");
+	   }
+	}
+	      
+	$(function(){
+	   fileshow();
+	   $("#upfile").change(function(){
+	      $("#filevalue").text('');
+	      //$(this).val()=> c:\fakepath\image1.png
+	      var inputfile=$(this).val().split('\\');//c:fakepath,image1.png
+	      $('#filevalue').text(inputfile[inputfile.length-1]);
+	      fileshow();
+	   })
+	   
+	   $("#close").click(function(){
+	      $("#filevalue").text('');
+	      $(this).css("display",'none');
+	   })
+	})
+	
 	function id_check() {
 		var id = $("#join_id").val();
 		var check = /^[a-z1-9_]{4,12}$/;
@@ -162,15 +199,15 @@
 </head>
 <body>
 	<div id="join_wrap">
-		<h2 class="join_title">회원가입</h2>
-		<form name="f" method="post" action="member_join_ok.nhn"
+		<h2 class="join_title">회원 수정</h2>
+		<form name="f" method="post" action="member_edit_ok.nhn"
 			onsubmit="return check()" enctype="multipart/form-data">
 			<table id="join_t">
 				<tr>
 					<th>회원아이디</th>
 					<td><input name="join_id" id="join_id" size="14"
-						class="input_box"> <input type="button" value="아이디 중복체크"
-						class="input_button" onclick="id_check()">
+						class="input_box" readOnly value="${m.join_id }"> <input type="button" value="아이디 중복체크"
+						class="input_button" onclick="id_check()" >
 						<div id="idcheck"></div></td>
 				</tr>
 
@@ -189,13 +226,13 @@
 				<tr>
 					<th>회원이름</th>
 					<td><input name="join_name" id="join_name" size="14"
-						class="input_box"></td>
+						class="input_box" value="${m.join_name }" readOnly></td>
 				</tr>
 
 				<tr>
 					<th>우편번호</th>
 					<td><input name="join_zip" id="join_zip" size="3"
-						class="input_box" readonly onclick="post_search()"> <input
+						class="input_box" value="${m.join_zip }" readonly onclick="post_search()"> <input
 						type="button" value="우편번호검색" class="input_button"
 						onclick="post_check()"></td>
 				</tr>
@@ -203,13 +240,13 @@
 				<tr>
 					<th>주소</th>
 					<td><input name="join_addr1" id="join_addr1" size="50"
-						class="input_box" readonly onclick="post_search()"></td>
+						class="input_box" readonly onclick="post_search()" value="${m.join_addr1 }"></td>
 				</tr>
 
 				<tr>
 					<th>나머지 주소</th>
 					<td><input name="join_addr2" id="join_addr2" size="37"
-						class="input_box"></td>
+						class="input_box" value="${m.join_addr2 }"></td>
 				</tr>
 
 				<tr>
@@ -220,8 +257,8 @@
 								<option value="${t}">${t}</option>
 							</c:forEach>
 					</select> - <input name="join_tel2" id="join_tel2" size="4" maxlength="4"
-						class="input_box"> - <input name="join_tel3"
-						id="join_tel3" size="4" maxlength="4" class="input_box"></td>
+						class="input_box" value="${join_tel2 }"> - <input name="join_tel3"
+						id="join_tel3" size="4" maxlength="4" class="input_box" value="${join_tel3 }"></td>
 				</tr>
 
 				<tr>
@@ -232,16 +269,16 @@
 								<option value="${p}">${p}</option>
 							</c:forEach>
 					</select> - <input name="join_phone2" id="join_phone2" size="4"
-						maxlength="4" class="input_box"> - <input
+						maxlength="4" class="input_box" value="${join_phone2 }"> - <input
 						name="join_phone3" id="join_phone3" size="4" maxlength="4"
-						class="input_box"></td>
+						class="input_box" value="${join_phone3}"></td>
 				</tr>
 
 				<tr>
 					<th>전자우편</th>
 					<td><input name="join_mailid" id="join_mailid" size="10"
-						class="input_box"> @ <input name="join_maildomain"
-						id="join_maildomain" size="20" class="input_box" readonly>
+						class="input_box" value="${join_mailid}"> @ <input name="join_maildomain"
+						id="join_maildomain" size="20" class="input_box" readonly value="${join_maildomain}">
 						<select name="mail_list" id="mail_list" onchange="domain_list()">
 							<option value="">- 이메일 선택 -</option>
 							<option value="daum.net">daum.net</option>
@@ -255,7 +292,11 @@
 
 				<tr>
 					<th>프로필사진</th>
-					<td><input type="file" name="join_profile">
+					<td>
+					<label for="upfile"><img src="resources/images/file_open.png" alt="파일열기"></label>
+					<input type="file" name="join_profile" id="upfile" value="${m.join_original }">
+					<span id="filevalue">${m.join_original }</span>&nbsp; 
+					<span id="close"><img src="resources/images/cancel.png"></span>
 					</td>
 				</tr>
 			</table>

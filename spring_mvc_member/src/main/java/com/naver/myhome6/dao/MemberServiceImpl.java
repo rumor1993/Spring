@@ -27,8 +27,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberBean findpwd(Map pm) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return memDAO.findpwd(pm);
 	}
 
 	@Override
@@ -39,8 +38,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberBean userCheck(String id) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return memDAO.userCheck(id);
 	}
 
 	@Override
@@ -51,7 +49,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void updateMember(MemberBean member) throws Exception {
-		// TODO Auto-generated method stub
+		memDAO.updateMember(member);
 		
 	}
 	

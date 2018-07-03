@@ -33,6 +33,20 @@
     		#{join_phone}, #{join_email}, #{join_file}, #{join_original},
     		sysdate,1)
     </insert> 
+    
+  <update id="update" parameterType="member">
+    	update join_member2 set join_pwd = #{join_pwd},
+    	join_zip = #{join_zip}, join_addr1 = #{join_addr1},
+    	join_addr2 = #{join_addr2}, join_tel = #{join_tel},
+    	join_phone = #{join_phone}, join_email = #{join_email},
+    	join_file = #{join_file}, join_original = #{join_original} 
+    	where join_id = #{join_id}
+    </update> 
+    
+    <select id="member_find" parameterType="map" resultType="member"> 
+    	select * from join_member2 where join_id = #{id} and join_name = #{name}
+    </select>
+    
 </mapper>
 
 

@@ -1,6 +1,7 @@
 package com.naver.myhome6.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,16 @@ public class MemberDAOImpl {
 	public int checkMemberId(String id) throws Exception {
 		return sqlsession.selectOne("Test.check_id",id);
 	}
-	
+	public MemberBean userCheck(String id) throws Exception {
+		return sqlsession.selectOne("Test.select_member",id);
+	}
+
+	public void updateMember(MemberBean member) {
+		sqlsession.update("Test.update",member);
+		
+	}
+
+	public MemberBean findpwd(Map pm) {
+		return sqlsession.selectOne("member_find",pm);
+	}
 }
